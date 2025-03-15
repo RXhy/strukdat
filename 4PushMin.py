@@ -19,3 +19,5 @@ for i in range(n):
         
     elif x[0] == "MIN":
         print(side[-1])
+        
+    print(stack,side)

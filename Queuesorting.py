@@ -1,10 +1,22 @@
 num, lim = map(int,input().split())
 initiate = []
-sortQ = []
+stack = []
+
 for i in range (num):
     temp = int(input())
     if temp == lim:
-        continue
+        break
     else:
         initiate.append(temp)
-print(initiate,sortQ)
+
+for i in initiate:
+    tempStack= []
+    while stack and stack[-1] > i:
+        tempStack.append(stack.pop())
+    stack.append(i)
+    while tempStack:
+        stack.append(tempStack.pop())
+print(stack)
+        
+    
+ 

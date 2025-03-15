@@ -1,20 +1,18 @@
 stack = []
 cek = {')':'(','}': '{', ']': '['}
-n= int(input())
+text = input()
 status = True
 
-for i in range(n):
-    temp = input()
-    if temp in cek.values():
+for temp in text:  
+    if temp in cek.values(): 
         stack.append(temp)
-    elif temp in cek.keys():
-        if temp not in stack:
-            stack.append(temp)
+    elif temp in cek.keys():  
+        if stack and stack[-1] == cek[temp]:  
+            stack.pop()
+        else:
             status = False
+            
 if status == True:
-    print(*stack)
-    print("valid") 
+    print(text + "\nvalid") 
 else:
-    print(*stack)
-    print("invalid") 
-# check [({)] invalid / [()] valid
+    print(text + "\ninvalid") 
