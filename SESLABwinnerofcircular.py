@@ -3,6 +3,6 @@ queue = []
 
 for i in range (n):
     queue.append(i+1)
-    
-# for i in range(n):
+
+print(queue)
 #incomplete
