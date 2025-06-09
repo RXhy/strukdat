@@ -3,6 +3,7 @@ mobil = list(map(int,input().split()))
 
 stack= []
 gang = []
+ans = 1
 
 stack.append(0)
 gang.append(n+1)

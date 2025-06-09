@@ -1,20 +1,13 @@
 n = int(input())
 day = list(map(int,input().split()))
-wait = []
+wait = [0]*n
+stack = []
 
-for i in range(len(day)):
-    time = 0  
-    current = day.pop(0)
-    queue = day[:]
-    temptime = 0 
-    while queue:
-        next = queue.pop(0)
-        if current > next:
-            temptime += 1
-        if current < next:
-            time += 1
-            time += temptime
-            break
-    wait.append(time)
-    
+for i, k in enumerate(day):  
+    while stack and day[stack[-1]] < k:
+        prevInd = stack.pop()
+        wait[prevInd] = i - prevInd
+    stack.append(i)
+    # print(i,k,stack,wait)
+
 print(*wait)
